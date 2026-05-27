@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 80" role="img" aria-label="MADAHACK">
+  <style>
+    .wordmark { font-family: 'Rajdhani', 'Space Grotesk', system-ui, sans-serif; font-weight: 700; font-size: 64px; letter-spacing: -0.02em; }
+  </style>
+  <text x="0" y="60" class="wordmark" fill="#FFFFFF">MADA</text>
+  <text x="195" y="60" class="wordmark" fill="#007E3A">HACK</text>
+  <circle cx="430" cy="55" r="7" fill="#FC3D32"/>
+</svg>

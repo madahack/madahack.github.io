@@ -3,65 +3,455 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>MADAHACK — Cybersécurité Madagascar</title>
-  <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body {
-      background: #000;
-      color: #fff;
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      padding: 20px;
-    }
-    .container { max-width: 800px; }
-    h1 {
-      font-size: clamp(3rem, 10vw, 6rem);
-      font-weight: 900;
-      letter-spacing: -0.02em;
-      margin-bottom: 1rem;
-    }
-    .mada { color: #fff; }
-    .hack { color: #007E3A; }
-    .tagline {
-      font-size: 0.9rem;
-      letter-spacing: 0.3em;
-      color: #888;
-      text-transform: uppercase;
-      margin-bottom: 3rem;
-    }
-    .tagline .red { color: #FC3D32; }
-    .tagline .green { color: #007E3A; }
-    .soon {
-      font-size: 1.2rem;
-      color: #ccc;
-      margin-top: 2rem;
-    }
-    .blink {
-      display: inline-block;
-      animation: blink 1s infinite;
-      color: #007E3A;
-    }
-    @keyframes blink {
-      0%, 50% { opacity: 1; }
-      51%, 100% { opacity: 0; }
-    }
-  </style>
+  <meta name="theme-color" content="#0A0A0A">
+
+  <title>MADAHACK — Cybersécurité Madagascar | CTF, Formation &amp; Crise Cyber</title>
+  <meta name="description" content="MADAHACK, initiative malgache dédiée à la cybersécurité : CTF, événements, formations, sensibilisation et exercices de gestion de crise cyber. Antananarivo, Madagascar.">
+  <meta name="keywords" content="cybersécurité, Madagascar, CTF, hacking éthique, formation cyber, gestion de crise, MADAHACK, Antananarivo">
+  <meta name="author" content="MADAHACK">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="MADAHACK — Cybersécurité Madagascar">
+  <meta property="og:description" content="CTF, formations et exercices de crise cyber. Made in Madagascar.">
+  <meta property="og:url" content="https://madahack.org">
+  <meta property="og:image" content="https://madahack.org/assets/img/og-image.png">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="MADAHACK — Cybersécurité Madagascar">
+  <meta name="twitter:description" content="CTF, formations et exercices de crise cyber. Made in Madagascar.">
+
+  <link rel="canonical" href="https://madahack.org/">
+  <link rel="icon" type="image/svg+xml" href="assets/img/favicon.svg">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Rajdhani:wght@500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="assets/css/style.css">
+
+  <!-- JSON-LD Organization -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "MADAHACK",
+    "url": "https://madahack.org",
+    "logo": "https://madahack.org/assets/img/logo.svg",
+    "description": "Initiative malgache de cybersécurité : CTF, formations et exercices de crise cyber.",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Antananarivo",
+      "addressCountry": "MG"
+    },
+    "email": "contact@madahack.org"
+  }
+  </script>
 </head>
 <body>
-  <div class="container">
-    <h1><span class="mada">MADA</span><span class="hack">HACK</span></h1>
-    <p class="tagline">
-      <span class="red">HACK</span> · 
-      <span class="green">DEFEND</span> · 
-      <span>SECURE</span>
-    </p>
-    <p class="soon">
-      &gt; Site en construction<span class="blink">_</span>
-    </p>
-  </div>
+
+  <a href="#main" class="sr-only">Aller au contenu</a>
+
+  <!-- ============================================================
+       NAVIGATION
+       ============================================================ -->
+  <header class="nav" role="banner">
+    <div class="nav-inner">
+      <a href="#hero" class="nav-logo" aria-label="MADAHACK — accueil">
+        <svg viewBox="0 0 480 80" aria-hidden="true">
+          <text x="0" y="60" font-family="Rajdhani, 'Space Grotesk', sans-serif" font-weight="700" font-size="64" fill="#FFFFFF" letter-spacing="-1">MADA</text>
+          <text x="195" y="60" font-family="Rajdhani, 'Space Grotesk', sans-serif" font-weight="700" font-size="64" fill="#007E3A" letter-spacing="-1">HACK</text>
+          <circle cx="430" cy="55" r="7" fill="#FC3D32"/>
+        </svg>
+      </a>
+
+      <nav aria-label="Navigation principale">
+        <ul class="nav-links" id="nav-links">
+          <li><a href="#about">about</a></li>
+          <li><a href="#activites">activites</a></li>
+          <li><a href="#pourquoi">pourquoi</a></li>
+          <li><a href="#contact">contact</a></li>
+        </ul>
+      </nav>
+
+      <button class="burger" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="nav-links">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <main id="main">
+
+    <!-- ============================================================
+         HERO
+         ============================================================ -->
+    <section class="hero" id="hero" aria-labelledby="hero-title">
+      <div class="hero-bg" aria-hidden="true"></div>
+
+      <div class="hero-content">
+        <svg class="hero-logo" viewBox="0 0 480 80" role="img" aria-label="MADAHACK">
+          <text x="0" y="60" font-family="Rajdhani, 'Space Grotesk', sans-serif" font-weight="700" font-size="64" fill="#FFFFFF" letter-spacing="-1">MADA</text>
+          <text x="195" y="60" font-family="Rajdhani, 'Space Grotesk', sans-serif" font-weight="700" font-size="64" fill="#007E3A" letter-spacing="-1">HACK</text>
+          <circle cx="430" cy="55" r="7" fill="#FC3D32"/>
+        </svg>
+
+        <h1 class="hero-title" id="hero-title">
+          Cybersécurité <span class="accent">made in Madagascar</span>
+        </h1>
+
+        <p class="terminal" aria-label="HACK DEFEND SECURE">
+          <span class="prompt">&gt;</span>HACK<span class="dot">·</span>DEFEND<span class="dot">·</span>SECURE<span class="cursor" aria-hidden="true">_</span>
+        </p>
+
+        <div class="hero-ctas">
+          <a href="#activites" class="btn btn-primary">Découvrir nos activités</a>
+          <a href="#contact" class="btn btn-outline">Nous contacter</a>
+        </div>
+      </div>
+
+      <div class="hero-scroll-hint" aria-hidden="true">scroll ↓</div>
+    </section>
+
+    <!-- ============================================================
+         ABOUT
+         ============================================================ -->
+    <section id="about" aria-labelledby="about-title">
+      <div class="container">
+        <p class="eyebrow reveal">// 01 — à propos</p>
+        <h2 class="section-title reveal" id="about-title">MADAHACK, c'est quoi&nbsp;?</h2>
+
+        <p class="about-intro reveal">
+          MADAHACK est une initiative malgache dédiée à la cybersécurité.
+          Nous rassemblons passionnés, professionnels et apprenants autour
+          d'une mission&nbsp;: faire monter en compétence l'écosystème numérique
+          malgache face aux menaces cyber.
+        </p>
+
+        <div class="mini-cards">
+          <article class="mini-card reveal">
+            <div class="mini-card-icon" aria-hidden="true">🇲🇬</div>
+            <h3>100&nbsp;% malgache</h3>
+            <p>Une communauté locale, ouverte sur le monde.</p>
+          </article>
+
+          <article class="mini-card reveal">
+            <div class="mini-card-icon" aria-hidden="true">🛡️</div>
+            <h3>Éthique avant tout</h3>
+            <p>White hat, charte stricte, transparence.</p>
+          </article>
+
+          <article class="mini-card reveal">
+            <div class="mini-card-icon" aria-hidden="true">🤝</div>
+            <h3>Communautaire</h3>
+            <p>Apprendre, partager, progresser ensemble.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         ACTIVITÉS
+         ============================================================ -->
+    <section class="activities" id="activites" aria-labelledby="activites-title">
+      <div class="container">
+        <p class="eyebrow reveal">// 02 — nos activités</p>
+        <h2 class="section-title reveal" id="activites-title">Ce qu'on fait</h2>
+        <p class="section-subtitle reveal">
+          Trois piliers, une mission&nbsp;: démocratiser la cybersécurité à Madagascar.
+        </p>
+
+        <div class="cards">
+
+          <!-- CARTE 1 — CTF (ROUGE) -->
+          <article class="card accent-red reveal" id="ctf">
+            <div class="card-icon" aria-hidden="true">
+              <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M10 42 V8 L34 14 L10 22"/>
+                <line x1="10" y1="22" x2="10" y2="42"/>
+              </svg>
+            </div>
+            <h3>CTF &amp; Événements</h3>
+            <p class="card-text">
+              Nous organisons des compétitions Capture The Flag, des conférences,
+              des meetups et des hackathons pour fédérer la communauté cyber
+              malgache et faire émerger les talents.
+            </p>
+            <ul class="card-list">
+              <li>Compétitions CTF (jeopardy, attack/defense)</li>
+              <li>Conférences techniques et talks</li>
+              <li>Meetups réguliers</li>
+              <li>Hackathons thématiques</li>
+            </ul>
+            <a href="#contact" class="btn-ghost">Voir les prochains événements →</a>
+          </article>
+
+          <!-- CARTE 2 — Formation (VERT) -->
+          <article class="card accent-green reveal" id="formation">
+            <div class="card-icon" aria-hidden="true">
+              <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M4 18 L24 8 L44 18 L24 28 Z"/>
+                <path d="M12 22 V34 C12 34 16 40 24 40 C32 40 36 34 36 34 V22"/>
+                <line x1="44" y1="18" x2="44" y2="30"/>
+              </svg>
+            </div>
+            <h3>Formation &amp; Sensibilisation</h3>
+            <p class="card-text">
+              Du débutant curieux à l'équipe d'entreprise, nous proposons
+              formations techniques et sensibilisation pour outiller chacun
+              face aux menaces numériques d'aujourd'hui.
+            </p>
+            <ul class="card-list">
+              <li>Formations techniques (pentest, OSINT, forensic)</li>
+              <li>Ateliers pratiques pour étudiants</li>
+              <li>Sensibilisation en entreprise</li>
+              <li>Conférences en écoles et universités</li>
+            </ul>
+            <a href="#contact" class="btn-ghost">Demander une formation →</a>
+          </article>
+
+          <!-- CARTE 3 — Crise (BLANC) -->
+          <article class="card accent-white reveal" id="crise">
+            <div class="card-icon" aria-hidden="true">
+              <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M24 4 L42 38 H6 Z"/>
+                <line x1="24" y1="18" x2="24" y2="28"/>
+                <circle cx="24" cy="33" r="1.5" fill="currentColor"/>
+              </svg>
+            </div>
+            <h3>Exercices de crise cyber</h3>
+            <p class="card-text">
+              Nous concevons et animons des exercices de simulation d'attaque
+              pour préparer vos équipes — techniques et décisionnelles — à
+              réagir efficacement en cas d'incident majeur.
+            </p>
+            <ul class="card-list">
+              <li>Table-top exercises (TTX)</li>
+              <li>War games sur scénarios réalistes</li>
+              <li>Exercices techniques en environnement contrôlé</li>
+              <li>Debriefing et plans d'action</li>
+            </ul>
+            <a href="#contact" class="btn-ghost">Organiser un exercice →</a>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         POURQUOI
+         ============================================================ -->
+    <section id="pourquoi" aria-labelledby="pourquoi-title">
+      <div class="container">
+        <p class="eyebrow reveal">// 03 — pourquoi nous</p>
+        <h2 class="section-title reveal" id="pourquoi-title">Pourquoi MADAHACK&nbsp;?</h2>
+        <p class="section-subtitle reveal">
+          Quatre raisons de nous faire confiance pour vos projets cyber.
+        </p>
+
+        <div class="why-grid">
+          <div class="why-block reveal">
+            <div class="why-icon" aria-hidden="true">🎯</div>
+            <h3>Expertise</h3>
+            <p>Une équipe formée aux standards internationaux.</p>
+          </div>
+          <div class="why-block reveal">
+            <div class="why-icon" aria-hidden="true">🇲🇬</div>
+            <h3>Ancrage local</h3>
+            <p>Réalités malgaches, langue, contexte.</p>
+          </div>
+          <div class="why-block reveal">
+            <div class="why-icon" aria-hidden="true">🛡️</div>
+            <h3>Éthique</h3>
+            <p>Charte stricte, confidentialité garantie.</p>
+          </div>
+          <div class="why-block reveal">
+            <div class="why-icon" aria-hidden="true">🚀</div>
+            <h3>Engagement</h3>
+            <p>Faire grandir la cyber à Madagascar.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         CONTACT
+         ============================================================ -->
+    <section class="contact" id="contact" aria-labelledby="contact-title">
+      <div class="container">
+        <p class="eyebrow reveal">// 04 — contact</p>
+        <h2 class="section-title reveal" id="contact-title">Parlons cyber</h2>
+        <p class="section-subtitle reveal">
+          Une question, un projet, une envie de rejoindre l'aventure&nbsp;? Écrivez-nous.
+        </p>
+
+        <div class="contact-grid">
+
+          <!-- Coordonnées -->
+          <div class="contact-info reveal">
+
+            <a class="contact-info-item" href="mailto:contact@madahack.org">
+              <span class="contact-info-icon" aria-hidden="true">📧</span>
+              <span>
+                <span class="contact-info-label">Email général</span>
+                <span class="contact-info-value">contact@madahack.org</span>
+              </span>
+            </a>
+
+            <a class="contact-info-item" href="mailto:security@madahack.org">
+              <span class="contact-info-icon" aria-hidden="true">🔐</span>
+              <span>
+                <span class="contact-info-label">Sécurité</span>
+                <span class="contact-info-value">security@madahack.org</span>
+              </span>
+            </a>
+
+            <div class="contact-info-item">
+              <span class="contact-info-icon" aria-hidden="true">📍</span>
+              <span>
+                <span class="contact-info-label">Localisation</span>
+                <span class="contact-info-value">Antananarivo, Madagascar 🇲🇬</span>
+              </span>
+            </div>
+
+            <div>
+              <span class="contact-info-label" style="display:block;margin-bottom:.75rem;">Suivez-nous</span>
+              <ul class="social-links">
+                <li>
+                  <a href="#" aria-label="LinkedIn MADAHACK" rel="noopener">
+                    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                      <path d="M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.04-1.85-3.04-1.86 0-2.14 1.45-2.14 2.95v5.66H9.36V9h3.41v1.56h.05c.47-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.72v20.56C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.72V1.72C24 .77 23.2 0 22.22 0z"/>
+                    </svg>
+                  </a>
+                </li>
+                <li>
+                  <a href="#" aria-label="GitHub MADAHACK" rel="noopener">
+                    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                      <path d="M12 .3a12 12 0 0 0-3.8 23.38c.6.12.83-.26.83-.57v-2c-3.34.72-4.04-1.6-4.04-1.6-.55-1.39-1.34-1.76-1.34-1.76-1.08-.74.09-.73.09-.73 1.2.08 1.83 1.23 1.83 1.23 1.08 1.83 2.81 1.3 3.5 1 .1-.78.42-1.31.76-1.61-2.66-.3-5.47-1.33-5.47-5.93 0-1.31.47-2.38 1.24-3.22-.13-.3-.54-1.52.1-3.18 0 0 1-.32 3.3 1.23a11.5 11.5 0 0 1 6 0c2.28-1.55 3.29-1.23 3.29-1.23.64 1.66.23 2.88.11 3.18a4.65 4.65 0 0 1 1.24 3.22c0 4.61-2.81 5.62-5.48 5.92.42.36.81 1.1.81 2.22v3.29c0 .31.21.69.83.57A12 12 0 0 0 12 .3"/>
+                    </svg>
+                  </a>
+                </li>
+                <li>
+                  <a href="#" aria-label="Discord MADAHACK" rel="noopener">
+                    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                      <path d="M20.32 4.37A19.79 19.79 0 0 0 16.4 3.15a14.5 14.5 0 0 0-.66 1.34 18.27 18.27 0 0 0-5.5 0 13.6 13.6 0 0 0-.67-1.34c-1.36.23-2.66.64-3.92 1.22A20.13 20.13 0 0 0 .67 17.94a19.94 19.94 0 0 0 6 3.03 14.65 14.65 0 0 0 1.28-2.08 12.97 12.97 0 0 1-2-.96c.17-.13.34-.27.5-.41a14.32 14.32 0 0 0 12.1 0c.16.14.33.28.5.41-.65.38-1.32.7-2.01.96.36.74.79 1.43 1.28 2.08a19.93 19.93 0 0 0 6-3.03c.4-5.18-.69-9.7-2.99-13.57zM8.02 15.33c-1.18 0-2.16-1.09-2.16-2.42 0-1.34.96-2.42 2.16-2.42 1.2 0 2.18 1.09 2.16 2.42 0 1.33-.96 2.42-2.16 2.42zm7.96 0c-1.19 0-2.16-1.09-2.16-2.42 0-1.34.96-2.42 2.16-2.42 1.2 0 2.18 1.09 2.16 2.42 0 1.33-.95 2.42-2.16 2.42z"/>
+                    </svg>
+                  </a>
+                </li>
+              </ul>
+            </div>
+
+          </div>
+
+          <!-- Formulaire -->
+          <!-- TODO : remplacer par Formspree
+               1. Créer compte sur formspree.io
+               2. Remplacer l'attribut onsubmit du <form> par :
+                  action="https://formspree.io/f/YOUR_FORM_ID" method="POST"
+               3. Supprimer le handler JS mailto -->
+          <form class="contact-form reveal" id="contact-form" novalidate>
+
+            <div class="field">
+              <label for="name">Nom<span class="req">*</span></label>
+              <input type="text" id="name" name="name" required autocomplete="name" placeholder="Votre nom">
+            </div>
+
+            <div class="field">
+              <label for="email">Email<span class="req">*</span></label>
+              <input type="email" id="email" name="email" required autocomplete="email" placeholder="vous@exemple.com">
+            </div>
+
+            <div class="field">
+              <label for="topic">Sujet</label>
+              <select id="topic" name="topic">
+                <option>Information générale</option>
+                <option>CTF / Événement</option>
+                <option>Formation / Sensibilisation</option>
+                <option>Exercice de crise</option>
+                <option>Rejoindre MADAHACK</option>
+                <option>Autre</option>
+              </select>
+            </div>
+
+            <div class="field">
+              <label for="message">Message<span class="req">*</span></label>
+              <textarea id="message" name="message" required placeholder="Dites-nous tout…"></textarea>
+            </div>
+
+            <button type="submit" class="btn btn-primary">Envoyer</button>
+          </form>
+
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ============================================================
+       FOOTER
+       ============================================================ -->
+  <footer role="contentinfo">
+    <div class="container">
+
+      <div class="footer-top">
+        <a href="#hero" class="footer-logo" aria-label="MADAHACK — retour en haut">
+          <svg viewBox="0 0 480 80" aria-hidden="true">
+            <text x="0" y="60" font-family="Rajdhani, 'Space Grotesk', sans-serif" font-weight="700" font-size="64" fill="#FFFFFF" letter-spacing="-1">MADA</text>
+            <text x="195" y="60" font-family="Rajdhani, 'Space Grotesk', sans-serif" font-weight="700" font-size="64" fill="#007E3A" letter-spacing="-1">HACK</text>
+            <circle cx="430" cy="55" r="7" fill="#FC3D32"/>
+          </svg>
+        </a>
+
+        <nav class="footer-nav" aria-label="Liens secondaires">
+          <a href="#activites">Activités</a>
+          <a href="#pourquoi">Pourquoi</a>
+          <a href="#contact">Contact</a>
+        </nav>
+
+        <ul class="social-links">
+          <li>
+            <a href="#" aria-label="LinkedIn" rel="noopener">
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                <path d="M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.04-1.85-3.04-1.86 0-2.14 1.45-2.14 2.95v5.66H9.36V9h3.41v1.56h.05c.47-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.72v20.56C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.72V1.72C24 .77 23.2 0 22.22 0z"/>
+              </svg>
+            </a>
+          </li>
+          <li>
+            <a href="#" aria-label="GitHub" rel="noopener">
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                <path d="M12 .3a12 12 0 0 0-3.8 23.38c.6.12.83-.26.83-.57v-2c-3.34.72-4.04-1.6-4.04-1.6-.55-1.39-1.34-1.76-1.34-1.76-1.08-.74.09-.73.09-.73 1.2.08 1.83 1.23 1.83 1.23 1.08 1.83 2.81 1.3 3.5 1 .1-.78.42-1.31.76-1.61-2.66-.3-5.47-1.33-5.47-5.93 0-1.31.47-2.38 1.24-3.22-.13-.3-.54-1.52.1-3.18 0 0 1-.32 3.3 1.23a11.5 11.5 0 0 1 6 0c2.28-1.55 3.29-1.23 3.29-1.23.64 1.66.23 2.88.11 3.18a4.65 4.65 0 0 1 1.24 3.22c0 4.61-2.81 5.62-5.48 5.92.42.36.81 1.1.81 2.22v3.29c0 .31.21.69.83.57A12 12 0 0 0 12 .3"/>
+              </svg>
+            </a>
+          </li>
+          <li>
+            <a href="#" aria-label="Discord" rel="noopener">
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                <path d="M20.32 4.37A19.79 19.79 0 0 0 16.4 3.15a14.5 14.5 0 0 0-.66 1.34 18.27 18.27 0 0 0-5.5 0 13.6 13.6 0 0 0-.67-1.34c-1.36.23-2.66.64-3.92 1.22A20.13 20.13 0 0 0 .67 17.94a19.94 19.94 0 0 0 6 3.03 14.65 14.65 0 0 0 1.28-2.08 12.97 12.97 0 0 1-2-.96c.17-.13.34-.27.5-.41a14.32 14.32 0 0 0 12.1 0c.16.14.33.28.5.41-.65.38-1.32.7-2.01.96.36.74.79 1.43 1.28 2.08a19.93 19.93 0 0 0 6-3.03c.4-5.18-.69-9.7-2.99-13.57zM8.02 15.33c-1.18 0-2.16-1.09-2.16-2.42 0-1.34.96-2.42 2.16-2.42 1.2 0 2.18 1.09 2.16 2.42 0 1.33-.96 2.42-2.16 2.42zm7.96 0c-1.19 0-2.16-1.09-2.16-2.42 0-1.34.96-2.42 2.16-2.42 1.2 0 2.18 1.09 2.16 2.42 0 1.33-.95 2.42-2.16 2.42z"/>
+              </svg>
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      <p class="footer-baseline">
+        <span class="hack">HACK</span>
+        <span class="sep">·</span>
+        <span class="defend">DEFEND</span>
+        <span class="sep">·</span>
+        <span class="secure">SECURE</span>
+      </p>
+
+      <p class="footer-copy">© 2026 MADAHACK · Cybersécurité Madagascar 🇲🇬</p>
+    </div>
+  </footer>
+
+  <!--
+    Curieux(se) ? On recrute.
+    contact@madahack.org
+    PS: ce site est volontairement statique. C'est plus sûr 😉
+  -->
+
+  <script src="assets/js/main.js" defer></script>
 </body>
 </html>
