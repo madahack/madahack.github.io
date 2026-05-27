@@ -341,8 +341,11 @@ h3 {
 }
 
 .hero-logo {
-  margin: 0 auto 2.5rem;
-  width: min(420px, 70vw);
+  display: block;
+  margin: 0 auto 2rem;
+  width: min(280px, 60vw);
+  height: auto;
+  filter: drop-shadow(0 8px 32px rgba(0, 126, 58, 0.25));
 }
 
 .hero-title {
